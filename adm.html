@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    background: #b6b6b6;
+}
+
+
+
+
+
+/** Formulário **/
+
+.containerF{
+    max-width: 700px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    padding: 30px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-radius: 15px;
+}
+
+.containerF .tit{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 550;
+    color: rgb(29, 27, 27);
+    position: relative;
+}
+
+
+.containerF small{
+    bottom: 0;
+    left: 0;
+    color: #d64646;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.hidden{
+    display: none;
+}
+
+
+.containerF .tit::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 150px;
+
+}
+
+.containerF form .infosU, 
+.sexoE,
+.prefe{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 25px 0 30px 0;
+}
+
+form .infosU .boxU, 
+.sexoE,
+.prefe{
+   margin-bottom: 15px;
+    width: 100%;
+}
+
+.infosU .boxU .detal, 
+.sexoE,
+.prefe{
+    display: block;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.containerF .boxU input{
+    height: 45px;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgb(255, 255, 255);
+    padding-left: 20px;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(160, 160, 160);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.containerF .boxU input:focus{
+    border-color: rgb(0, 0, 0);
+}
+
+form .buton{
+    height: 45px;
+    margin: 45px 0;
+}
+
+form .buton input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    background: #252829;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+form .buton input:hover{
+    background: #3b3e3f;
+}
+
+a {
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    bottom: 0;
+    left: 0;
+    color: #000000;
+
+}
+
+.error{
+    border: 2px solid #d64646 !important;
+}
+
+    </style>
+   
+    <title>Cadastro - Admin</title>
+  </head>
+
+
+  <body>
+
+
+
+
+    <div class="containerF">
+      <div class="tit">Administrador</div>
+      <form action="#" id="form" name="form">
+        <div class="infosU">
+          <div class="boxU">
+            <label class="detal">Nome completo</label>
+            <input type="text" placeholder="Ex: Joe Clarence Hilds" class="Fullnameadm" id="Fullnameadm">
+            <small class="msgError hidden" id="msgError">Coloque seu nome completo</small>
+          </div>
+          <div class="boxU">
+            <label class="detal">E-mail</label>
+            <input type="email" placeholder="Ex: joeCla123@gmail.com" class="emailadm" id="emailadm">
+            <small class="msgError hidden" id="msgError">Complete o E-mail corretamente</small>
+          </div>
+          
+          <div class="boxU">
+            <label class="detal">Crie sua senha:</label>
+            <input type="password" placeholder="Máximo 10 caractéres" class="senhaadm" id="senhaadm">
+            <small class="msgError hidden" id="msgError">Coloque a nova senha com no Máx. 10 caractéres</small>
+          </div>
+          <div class="boxU">
+            <label class="detal">Confirme sua senha:</label>
+            <input type="password" placeholder="Mesma senha anterior" class="confsenhaadm" id="confsenhaadm">
+            <small class="msgError hidden" id="msgError">As senhas estão diferentes</small>
+          </div>
+        </div>
+        <div class="buton">
+          <input type="submit" value="Enviar" class="button" id="button">
+        </div>
+        <a href="Index.html">
+            <h6>Volte a home</h6>
+            </a>
+      </form>
+    </div>
+
+
+      <script>
+
+const button = document.getElementById('button')
+
+
+const validaInput = () => {
+        emailadm.classList.remove("error")
+        emailadm.nextElementSibling.classList.add("hidden");
+
+        Fullnameadm.classList.remove("error")
+        Fullnameadm.nextElementSibling.classList.add("hidden");
+
+        senhaadm.classList.remove("error")
+        senhaadm.nextElementSibling.classList.add("hidden");
+
+        confsenhaadm.classList.remove("error")
+        confsenhaadm.nextElementSibling.classList.add("hidden");
+
+
+    if(!emailadm.value) {
+        emailadm.classList.add("error")
+        emailadm.nextElementSibling.classList.remove("hidden");
+    }
+
+    if(emailadm.value.indexOf("@") == -1 || emailadm.value.indexOf(".") == -1 || (emailadm.value.indexOf(".") - emailadm.value.indexOf("@") == 1)) {
+        emailadm.classList.add("error")
+        emailadm.nextElementSibling.classList.remove("hidden");
+    }
+
+    if(!Fullnameadm.value) {
+        Fullnameadm.classList.add("error")
+        Fullnameadm.nextElementSibling.classList.remove("hidden");
+    }
+
+    if(!senhaadm.value || senhaadm.value.length > 10) {
+        senhaadm.classList.add("error")
+        senhaadm.nextElementSibling.classList.remove("hidden");
+    }
+
+    if(!confsenhaadm.value || (senhaadm.value) != (confsenhaadm.value) ) {
+        confsenhaadm.classList.add("error")
+        confsenhaadm.nextElementSibling.classList.remove("hidden");
+    }else{
+        confsenhaadm.classList.remove("error")
+        confsenhaadm.nextElementSibling.classList.add("hidden");
+    }
+
+}
+
+button.addEventListener('click', (event) =>{
+    event.preventDefault()
+
+    const emailadm = document.getElementById('emailadm')
+    const Fullnameadm = document.getElementById('Fullnameadm')
+    const senhaadm = document.getElementById('senhaadm')
+    const confsenhaadm = document.getElementById('confsenhaadm')
+
+
+
+    validaInput();
+
+    emailadm.addEventListener("input", () => {
+        validaInput();
+    })
+    
+    Fullnameadm.addEventListener("input", () => {
+        validaInput();
+    })
+    
+    
+    senhaadm.addEventListener("input", () => {
+        validaInput();
+    })
+    
+    confsenhaadm.addEventListener("input", () => {
+        validaInput();
+    })
+
+})
+
+
+
+      </script>
+  </body>
+</html>
